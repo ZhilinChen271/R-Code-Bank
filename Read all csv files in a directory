@@ -1,0 +1,14 @@
+# I utilize the code below to read all csv files from a directory and combine it to one single data set.
+# For instance, I have a bunch of csv files saved in a folder: "C:/Users/YOURNAME/". And I'd like to read all those csv files and combine
+# them into one single data set.
+
+
+# First set up the working directory to the folder which holds all the files that you'd like to read. I experienced permission issues
+# without doing so.
+setwd("C:/Users/YOURNAME/")
+
+# Second, lists all csv files in this folder
+file_list = list.files(pattern="*.csv")
+
+# Last, Read files and combine them.
+myfiles = do.call(rbind,lapply(file_list, read.csv))
